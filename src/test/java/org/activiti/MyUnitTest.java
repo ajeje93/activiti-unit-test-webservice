@@ -23,6 +23,8 @@ public class MyUnitTest {
 		Map<String, Object> variableMap = new HashMap<String, Object>();
 		variableMap.put("name", "Alfresco");
 		variableMap.put("contactperson", "Tom Baeyens");
+		variableMap.put("loadVar", "0.8");
+		variableMap.put("durationVar", "10");
 		ProcessInstance processInstance = activitiRule.getRuntimeService().startProcessInstanceByKey("customer",
 				variableMap);
 		assertNotNull(processInstance);

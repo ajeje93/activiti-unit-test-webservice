@@ -2,7 +2,7 @@
 	targetNamespace="http://www.bpmnwithactiviti.org" xmlns:tns="http://www.bpmnwithactiviti.org"
 	xmlns:activiti="http://activiti.org/bpmn" xmlns:sales="http://ws.chapter11.bpmnwithactiviti.org/">
 	<import importType="http://schemas.xmlsoap.org/wsdl/"
-		location="http://localhost:8081/book-sales-app/services/address?wsdl"
+		location="http://localhost:8080/book-sales-app/services/address?wsdl"
 		namespace="http://ws.chapter11.bpmnwithactiviti.org/" />
 	<message id="findCustomerAddressRequestMessage" itemRef="tns:findCustomerAddressRequestItem" />
 	<message id="findCustomerAddressResponseMessage" itemRef="tns:findCustomerAddressResponseItem" />
@@ -21,6 +21,8 @@
 	<itemDefinition id="customerName" structureRef="string" />
 	<itemDefinition id="address" structureRef="string" />
 	<itemDefinition id="webserviceResponse" structureRef="string" />
+	<itemDefinition id="load" structureRef="string" />
+	<itemDefinition id="duration" structureRef="string" />
 	<process id="customer">
 		<startEvent id="startevent" name="Start" />
 		<sequenceFlow sourceRef="startevent" targetRef="webService" />
@@ -41,6 +43,14 @@
 			<dataInputAssociation>
 				<sourceRef>name</sourceRef>
 				<targetRef>customerName</targetRef>
+			</dataInputAssociation>
+			<dataInputAssociation>
+				<sourceRef>loadVar</sourceRef>
+				<targetRef>load</targetRef>
+			</dataInputAssociation>
+			<dataInputAssociation>
+				<sourceRef>durationVar</sourceRef>
+				<targetRef>duration</targetRef>
 			</dataInputAssociation>
 			<dataOutputAssociation>
 				<sourceRef>address</sourceRef>
