@@ -23,6 +23,8 @@
 	<itemDefinition id="webserviceResponse" structureRef="string" />
 	<itemDefinition id="load" structureRef="string" />
 	<itemDefinition id="duration" structureRef="string" />
+	<itemDefinition id="loadVar" structureRef="string" />
+	<itemDefinition id="durationVar" structureRef="string" />
 	<process id="customer">
 		<startEvent id="startevent" name="Start" />
 		<sequenceFlow sourceRef="startevent" targetRef="webService" />
